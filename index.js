@@ -1,5 +1,6 @@
 require('express-async-errors');
 const winston = require('winston');
+require('winston-mongodb');
 const error = require('./middleware/error');
 const config = require('config');
 const Joi = require('joi');
@@ -14,7 +15,16 @@ const auth = require('./routes/auth');
 const express = require('express');
 const app = express();
 
+winston.handleExceptions(
+    new winston.transports.File({filename: 'uncaughtExceptions.log'})
+);
+
+process.on('unhandledRejection', (ex) => {
+    throw ex;
+});
+
 winston.add(winston.transports.File, {filename: 'logfile.log'});
+winston.add(winston.transports.MongoDB, { db: 'mongodb://localhost/vidly' });
 
 if (!config.get('jwtPrivateKey')) {
     console.log('FATAL ERROR: jwtPrivateKey is not defined.')
