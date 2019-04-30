@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "jest",
-    "start": "jest --watchAll"
+    "start": "jest --watchAll --verbose"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
@@ -26,6 +26,7 @@
     "winston-mongodb": "^3.0.0"
   },
   "devDependencies": {
-    "jest": "^24.7.1"
+    "jest": "^24.7.1",
+    "supertest": "^3.0.0"
   }
 }
