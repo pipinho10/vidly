@@ -20,7 +20,7 @@
     "joi": "^13.1.0",
     "joi-objectid": "^2.0.0",
     "jsonwebtoken": "^8.4.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "mongoose": "^5.4.5",
     "morgan": "~1.9.0",
     "pug": "2.0.0-beta11",
